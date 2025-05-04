@@ -1,12 +1,12 @@
 from abc import ABC, abstractmethod
 
-# Abstract base class
+
 class Converter(ABC):
     @abstractmethod
     def convert(self, value):
         pass
 
-# Concrete class for Arabic to Roman
+
 class ArabicToRomanConverter(Converter):
     def __init__(self):
         self._map = [
@@ -25,7 +25,7 @@ class ArabicToRomanConverter(Converter):
                 number -= value
         return result
 
-# Concrete class for Roman to Arabic
+
 class RomanToArabicConverter(Converter):
     def __init__(self):
         self._map = {
@@ -50,7 +50,7 @@ class RomanToArabicConverter(Converter):
             return "Neteisinga romėniško skaičiaus forma"
         return result
 
-# Factory Method (Design Pattern)
+
 class ConverterFactory:
     def get_converter(self, mode):
         if mode == "1":
@@ -60,7 +60,7 @@ class ConverterFactory:
         else:
             raise ValueError("Neteisingas režimas")
 
-# Composition: composition with file handler
+
 class FileManager:
     def __init__(self, filepath):
         self.filepath = filepath
@@ -77,7 +77,7 @@ class FileManager:
             return "Failas tuščias arba neegzistuoja."
 
 
-# Aggregation: converter naudoja factory, bet nėra jo dalis
+
 class ConverterApp:
     def __init__(self, factory, file_manager):
         self.factory = factory
@@ -108,7 +108,7 @@ class ConverterApp:
                 print("Netinkamas pasirinkimas.")
 
 
-# Main programa
+
 if __name__ == "__main__":
     factory = ConverterFactory()
     file_manager = FileManager("istorija.txt")
